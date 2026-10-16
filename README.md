@@ -8,7 +8,9 @@ accounts are issued by an administrator, there is no self-registration. The UI
 is bilingual (English / Ukrainian).
 
 The notes below — the whole design rationale, measurements and the mistakes
-worth not repeating — are in Ukrainian. Licensed under Apache-2.0.
+worth not repeating — are in Ukrainian.
+
+By [Alex Pavlyuk](https://github.com/Alex-Pavlyuk) · [Apache-2.0](LICENSE)
 
 ---
 
@@ -468,3 +470,20 @@ client/src/board/       viewport · grid · renderer · chrome · menu · compos
 client/src/             api · i18n (en/uk) · statuses · login · admin
 wwwroot/                index.html · admin/index.html · app/ (зібраний бандл)
 ```
+
+---
+
+## Автор і ліцензія
+
+**Alex Pavlyuk** — [@Alex-Pavlyuk](https://github.com/Alex-Pavlyuk)
+
+Код поширюється за ліцензією **Apache License 2.0** — повний текст у
+[LICENSE](LICENSE). Коротко: використовуйте, змінюйте і вбудовуйте у власні
+продукти, зокрема комерційні, зберігаючи згадку про авторство й текст ліцензії.
+Разом із правом на код ви отримуєте явну патентну ліцензію від автора; гарантій
+не надається.
+
+> **Author and licence.** Copyright © 2026 Alex Pavlyuk. Licensed under the
+> Apache License, Version 2.0 — see [LICENSE](LICENSE). Use, modify and ship it,
+> commercially included; keep the attribution and the licence text. The licence
+> carries an explicit patent grant and no warranty of any kind.
