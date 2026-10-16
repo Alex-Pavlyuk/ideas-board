@@ -1,0 +1,23 @@
+# deployment / local env files
+deploy.env
+build.env
+.env.local
+
+# build output
+bin/
+obj/
+publish/
+*.user
+node_modules/
+
+# the datastore — never in git
+App_Data/
+*.db
+*.db-wal
+*.db-shm
+
+# local-only: credentials live here and nowhere else
+COLLABORATION.md
+.claude/settings.local.json
+
+.DS_Store

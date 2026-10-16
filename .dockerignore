@@ -1,0 +1,23 @@
+bin/
+obj/
+publish/
+.git/
+.claude/
+
+# The datastore never belongs in an image.
+App_Data/
+*.db
+*.db-wal
+*.db-shm
+
+# TypeScript sources are not needed: wwwroot/app/* is committed already built,
+# and the build stage has no Node. See IdeasBoard.csproj, target BuildClient.
+client/
+
+# deployment artefacts
+deploy.env
+build.env
+.env.local
+
+COLLABORATION.md
+.DS_Store

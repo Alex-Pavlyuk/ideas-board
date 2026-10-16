@@ -1,0 +1,19 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ideas-board",
+      "runtimeExecutable": "dotnet",
+      "runtimeArgs": [
+        "run",
+        "--no-launch-profile",
+        "--urls",
+        "http://127.0.0.1:5080",
+        "--",
+        "--DB_PASSWORD=ideas",
+        "--ADMIN_EMAIL=admin@example.com"
+      ],
+      "port": 5080
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Deterministic assembly name -> app.dll, so the Dockerfile ENTRYPOINT never drifts. -->
+    <AssemblyName>app</AssemblyName>
+    <RootNamespace>IdeasBoard</RootNamespace>
+    <!-- UI is bilingual (en/uk) and formats dates client-side, but the server
+         formats nothing user-facing, so the trimmed ICU set is enough. -->
+    <InvariantGlobalization>true</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Postgres: a SQLite file inside the container did not survive a release.
+         No EF Core: the schema is six tables and the queries are hand-written,
+         so an ORM would only add startup cost and a migration toolchain we do
+         not need. -->
+    <PackageReference Include="Npgsql" Version="10.0.3" />
+  </ItemGroup>
+
+  <!--
+    Client bundle (client/src/*.ts -> wwwroot/app/*.js) is COMMITTED to the repo:
+    the Docker build stage has no Node, and CI only runs `docker build`.
+    The .NET build therefore does not recompile it by default.
+
+    Rebuild after editing TypeScript:  cd client && npm ci && npm run build
+    Or together with the .NET build:   dotnet build -p:BuildClient=true
+  -->
+  <Target Name="BuildClient" BeforeTargets="BeforeBuild" Condition="'$(BuildClient)' == 'true'">
+    <Exec Command="npm ci --no-audit --no-fund" WorkingDirectory="client" />
+    <Exec Command="npm run build" WorkingDirectory="client" />
+  </Target>
+
+</Project>
